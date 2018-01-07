@@ -1,2 +1,2 @@
 # RedCSV
-Red-lang CSV Parser
+Red-lang CSV reader (writer is not implemented yet).
