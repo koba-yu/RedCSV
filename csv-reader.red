@@ -1,5 +1,5 @@
 Red [
-    Title: "Red CSV reader"
+	Title: "Red CSV reader"
 	Author: "Koba-yu"
 	File: %csv-reader.red
 	Tabs: 4
