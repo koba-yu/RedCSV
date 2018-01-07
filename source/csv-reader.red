@@ -13,11 +13,11 @@ Red [
 		"Make a block of maps by CSV text"
 		text	[string!]		"CSV text"
 		return:	[block!]		"A block of maps"
-		/by							"Specify delimiter (default is comma)"
-			delimiter	[string!]	"delimiter string"
-		/no-header					"Do not read the first row as header"
-		/columns					"Specify names of columns"
-			names		[block!]	"A block of column names"
+		/by										"Specify delimiter (default is comma)"
+			delimiter	[char! string! bitset!]	"delimiter string"
+		/no-header								"Do not read the first row as header"
+		/columns								"Specify names of columns"
+			names		[block!]				"A block of column names"
 	][
 		rows: split text lf
 		unless by [delimiter: ","]
