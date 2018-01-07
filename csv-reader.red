@@ -12,7 +12,7 @@ Red [
 	map: function [
 		"Make a block of maps by CSV text"
 		text	[string!]		"CSV text"
-		return:	[block!]	"A block of maps"
+		return:	[block!]		"A block of maps"
 		/by							"Specify delimiter (default is comma)"
 			delimiter	[string!]	"delimiter string"
 		/no-header					"Do not read the first row as header"
