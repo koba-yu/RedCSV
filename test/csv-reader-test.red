@@ -5,7 +5,7 @@ Red [
 	Tabs: 4
 ]
 
-do https://raw.githubusercontent.com/koba-yu/RedCSV/master/source/csv-reader.red
+do %../source/csv-reader.red
 
 tests: make map! [
 	;----------------------------------
