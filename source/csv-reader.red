@@ -11,13 +11,13 @@ Red [
 ; csv-reader: context [
 	map: function [
 		"Make a block of maps by CSV text"
-		text	[string!]		"CSV text"
-		return:	[block!]		"A block of maps"
+		text			[string!]				"CSV text"
 		/by										"Specify delimiter (default is comma)"
 			delimiter	[char! string! bitset!]	"delimiter string"
 		/no-header								"Do not read the first row as header"
 		/columns								"Specify names of columns"
 			names		[map!]					"Map of column names"
+		return:			[block!]				"A block of maps"
 	][
 		rows: split text lf
 		unless by [delimiter: ","]

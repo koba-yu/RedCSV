@@ -8,7 +8,7 @@ Red [
 do %../source/csv-reader.red
 
 tests: make map! [
-	;----------------------------------
+
 	test1: [
 		ret: map {name,age,city
 Taro,20,Tokyo
@@ -25,7 +25,7 @@ Jiro,30,Osaka}
 			city: "Osaka"
 		)
 	]
-	;----------------------------------
+
 	test2: [
 		ret: map/no-header {Taro,20,Tokyo
 Jiro,30,Osaka}
@@ -42,7 +42,7 @@ Jiro,30,Osaka}
 			3 "Osaka"
 		)
 	]
-	;----------------------------------
+
 	test3: [
 		ret: map/by {name^-age^-city
 Taro^-20^-Tokyo
@@ -59,7 +59,7 @@ Jiro^-30^-Osaka} "^-"
 			city: "Osaka"
 		)
 	]
-	;----------------------------------
+
 	test4: [
 		ret: map/no-header/columns {Taro,20,Tokyo
 Jiro,30,Osaka} #(
@@ -79,7 +79,7 @@ Jiro,30,Osaka} #(
 			city: "Osaka"
 		)
 	]
-	;----------------------------------
+
 ]
 
 result: collect [foreach test keys-of tests [
