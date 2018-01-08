@@ -17,15 +17,22 @@ Red [
 			delimiter	[char! string! bitset!]	"delimiter string"
 		/no-header								"Do not read the first row as header"
 		/columns								"Specify names of columns"
-			names		[block!]				"A block of column names"
+			names		[map!]					"Map of column names"
 	][
 		rows: split text lf
 		unless by [delimiter: ","]
 
-		headers: case [
-			columns		[names]
-			no-header	[collect [repeat i length? split rows/1 delimiter [keep i]]]
-			true		[split rows/1 delimiter]
+		headers: either no-header [
+			collect [repeat i length? split rows/1 delimiter [keep i]]
+		][
+			split rows/1 delimiter
+		]
+
+		if columns [
+			headers: collect [foreach header headers [
+					keep either none? names/:header [header][names/:header]
+				]
+			]
 		]
 
 		unless no-header [take rows]

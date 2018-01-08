@@ -62,7 +62,11 @@ Jiro^-30^-Osaka} "^-"
 	;----------------------------------
 	test4: [
 		ret: map/no-header/columns {Taro,20,Tokyo
-Jiro,30,Osaka} ['name 'age 'city]
+Jiro,30,Osaka} #(
+	1 'name
+	2 'age
+	3 'city
+)
 
 		equal? ret/1 #(
 			name: "Taro"
@@ -78,7 +82,9 @@ Jiro,30,Osaka} ['name 'age 'city]
 	;----------------------------------
 ]
 
-collect [foreach test keys-of tests [
+result: collect [foreach test keys-of tests [
 		unless do tests/:test [keep rejoin [ test " is failed"]]
 	]
 ]
+
+print either empty? result ["All passed"][result]
