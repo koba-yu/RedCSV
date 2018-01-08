@@ -28,8 +28,7 @@ Red [
 			split rows/1 delimiter
 		]
 
-		if columns [
-			headers: collect [foreach header headers [
+		if columns [headers: collect [foreach header headers [
 					keep either none? names/:header [header][names/:header]
 				]
 			]
@@ -41,7 +40,7 @@ Red [
 		collect [foreach row rows [
 				fields: split row delimiter
 				keep make map! collect [repeat i row-length [
-						val: either none? fields/:i [""][fields/:i]
+						if none? val: fields/:i [val: ""]
 						keep reduce [
 							either maybe-word: attempt [
 								to word! headers/:i
