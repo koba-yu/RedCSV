@@ -83,7 +83,7 @@ Jiro,30,Osaka} #(
 ]
 
 result: collect [foreach test keys-of tests [
-		unless do tests/:test [keep rejoin [ test " is failed"]]
+		unless do tests/:test [keep rejoin [test " is failed"]]
 	]
 ]
 
