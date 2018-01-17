@@ -14,33 +14,37 @@ tests: make map! [
 Taro,20,Tokyo
 Jiro,30,Osaka}
 
-		equal? ret/1 #(
-			name: "Taro"
-			age: "20"
-			city: "Tokyo"
-		)
-		equal? ret/2 #(
-			name: "Jiro"
-			age: "30"
-			city: "Osaka"
-		)
+		all [
+			equal? ret/1 #(
+				name: "Taro"
+				age: "20"
+				city: "Tokyo"
+			)
+			equal? ret/2 #(
+				name: "Jiro"
+				age: "30"
+				city: "Osaka"
+			)
+		]
 	]
 
 	test2: [
 		ret: map/no-header {Taro,20,Tokyo
 Jiro,30,Osaka}
 
-		equal? ret/1 #(
-			1 "Taro"
-			2 "20"
-			3 "Tokyo"
-		)
+		all [
+			equal? ret/1 #(
+				1 "Taro"
+				2 "20"
+				3 "Tokyo"
+			)
 
-		equal? ret/2 #(
-			1 "Jiro"
-			2 "30"
-			3 "Osaka"
-		)
+			equal? ret/2 #(
+				1 "Jiro"
+				2 "30"
+				3 "Osaka"
+			)
+		]
 	]
 
 	test3: [
@@ -48,16 +52,18 @@ Jiro,30,Osaka}
 Taro^-20^-Tokyo
 Jiro^-30^-Osaka} "^-"
 
-		equal? ret/1 #(
-			name: "Taro"
-			age: "20"
-			city: "Tokyo"
-		)
-		equal? ret/2 #(
-			name: "Jiro"
-			age: "30"
-			city: "Osaka"
-		)
+		all [
+			equal? ret/1 #(
+				name: "Taro"
+				age: "20"
+				city: "Tokyo"
+			)
+			equal? ret/2 #(
+				name: "Jiro"
+				age: "30"
+				city: "Osaka"
+			)
+		]
 	]
 
 	test4: [
@@ -67,17 +73,52 @@ Jiro,30,Osaka} #(
 	2 'age
 	3 'city
 )
+		all [
+			equal? ret/1 #(
+				name: "Taro"
+				age: "20"
+				city: "Tokyo"
+			)
+			equal? ret/2 #(
+				name: "Jiro"
+				age: "30"
+				city: "Osaka"
+			)
+		]
+	]
 
-		equal? ret/1 #(
-			name: "Taro"
-			age: "20"
-			city: "Tokyo"
-		)
-		equal? ret/2 #(
-			name: "Jiro"
-			age: "30"
-			city: "Osaka"
-		)
+	test5: [
+		ret: map/no-header {"abc","a,d",,"",15,"""","ab""c","""""","a
+b"
+"abc","a,d",,"",15,"""","ab""c","""""","a
+b"}
+		all [
+			equal? ret/1 #(
+				1 "abc"
+				2 "a,d"
+				3 ""
+				4 ""
+				5 "15"
+				6 {"}
+				7 {ab"c}
+				8 {""}
+				9 {a
+b}
+			)
+
+			equal? ret/2 #(
+				1 "abc"
+				2 "a,d"
+				3 ""
+				4 ""
+				5 "15"
+				6 {"}
+				7 {ab"c}
+				8 {""}
+				9 {a
+b}
+			)
+		]
 	]
 
 ]
