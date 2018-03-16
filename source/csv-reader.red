@@ -5,10 +5,7 @@ Red [
 	Tabs: 4
 ]
 
-; Can not use context until the issue below resolved
-; https://github.com/red/red/issues/3156
-
-; csv-reader: context [
+csv: context [
 	map: function [
 		"Make a block of maps by CSV text"
 		text			[string!]				"CSV text"
@@ -74,4 +71,4 @@ Red [
 			]
 		]
 	]
-; ]
+]

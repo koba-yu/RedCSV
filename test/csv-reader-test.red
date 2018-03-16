@@ -10,7 +10,7 @@ do %../source/csv-reader.red
 tests: make map! [
 
 	test1: [
-		ret: map {name,age,city
+		ret: csv/map {name,age,city
 Taro,20,Tokyo
 Jiro,30,Osaka}
 
@@ -29,7 +29,7 @@ Jiro,30,Osaka}
 	]
 
 	test2: [
-		ret: map/no-header {Taro,20,Tokyo
+		ret: csv/map/no-header {Taro,20,Tokyo
 Jiro,30,Osaka}
 
 		all [
@@ -48,7 +48,7 @@ Jiro,30,Osaka}
 	]
 
 	test3: [
-		ret: map/by {name^-age^-city
+		ret: csv/map/by {name^-age^-city
 Taro^-20^-Tokyo
 Jiro^-30^-Osaka} "^-"
 
@@ -67,7 +67,7 @@ Jiro^-30^-Osaka} "^-"
 	]
 
 	test4: [
-		ret: map/no-header/columns {Taro,20,Tokyo
+		ret: csv/map/no-header/columns {Taro,20,Tokyo
 Jiro,30,Osaka} #(
 	1 'name
 	2 'age
@@ -88,7 +88,7 @@ Jiro,30,Osaka} #(
 	]
 
 	test5: [
-		ret: map/no-header {"abc","a,d",,"",15,"""","ab""c","""""","a
+		ret: csv/map/no-header {"abc","a,d",,"",15,"""","ab""c","""""","a
 b"
 "abc","a,d",,"",15,"""","ab""c","""""","a
 b"}
